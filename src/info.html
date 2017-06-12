@@ -1,0 +1,172 @@
+<div ng-controller="info as curent" class="content">
+    <nav class="menuInfo" ng-show="lang == 'EN' || !lang">
+        <a href="" ><h2>Visit</h2></a>
+        <a href="" ><h2>Projet</h2></a>
+        <a href="" ><h2>News</h2></a>
+        <a href="" data-toggle="modal" data-target="#conModal"><h2 ng-click="type = 'new'">Account</h2></a>
+    </nav>
+    
+    <nav class="menuInfo" ng-show="lang == 'FR'">
+        <a href="" ><h2>Visite</h2></a>
+        <a href="" ><h2>Projet</h2></a>
+        <a href="" ><h2>Nouvelles</h2></a>
+        <a href="" data-toggle="modal" data-target="#conModal"><h2 ng-click="type = 'new'">Compte</h2></a>
+    </nav>
+
+    <div class="firstPic"></div>
+
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-6">
+
+        <h1>AugmentEPF</h1>
+        <h2 ng-show="lang == 'EN' || !lang">Presentation</h2>
+        <h2 ng-show="lang == 'FR'">Présentation</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu enim eu massa porttitor luctus at sit amet eros. Mauris imperdiet tempus justo sed mollis. Donec molestie vehicula efficitur. Aliquam dui eros, eleifend nec efficitur id, fermentum et justo. Proin id porta ex. Aenean scelerisque ex in semper lobortis. Nullam eget est nec nibh pellentesque lobortis. Proin rutrum, eros interdum mollis egestas, lorem sapien vulputate urna, a vehicula enim tortor non urna. Cras lacinia velit et feugiat mollis. Curabitur non velit dictum, viverra tortor id, congue sapien. In eget lacinia tortor. Maecenas erat ligula, efficitur vel libero vel, blandit accumsan neque. Pellentesque lobortis velit non sem rhoncus, placerat suscipit mi vulputate. In aliquam arcu eget tellus imperdiet tempus. Nam non lectus in mauris volutpat ultricies sed non nibh.
+        </p>
+
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+
+        <h2 ng-show="lang == 'EN' || !lang">The Team</h2>
+        <h2 ng-show="lang == 'FR'">L'équipe</h2>
+            <div class="personalTag">
+                <img src="img/photoProfile/ColinePatris.png" class="img-responsive" width="200" height="200" alt="Coline patris">
+                <label>Coline patris</label>
+            </div>
+            <div class="personalTag">
+                <img src="img/photoProfile/CecileTran.png" class="img-responsive" width="200" height="200" alt="Cecile Tran">
+                <label>Cecile Tran</label>
+            </div>
+            <div class="personalTag">
+                <img src="img/photoProfile/AnthonyPrudhomme.png" class="img-responsive" width="200" height="200" alt="Anthony Prudhomme">
+                <label>Anthony Prudhomme</label>
+            </div>
+            <div class="personalTag">
+                <img src="img/photoProfile/AntoineGoubin.png" class="img-responsive" width="200" height="200" alt="Antoine Goubin">
+                <label>Antoine Goubin</label>
+            </div>
+            <div class="personalTag">
+                <img src="img/photoProfile/JeremyDuong.png" class="img-responsive" width="200" height="200" alt="Jeremy Duong">
+                <label>Jeremy Duong</label>
+            </div>
+            <div class="personalTag">
+                <img src="img/photoProfile/HugoRuiz.png" class="img-responsive" width="200">
+                <label>Hugo_Ruiz</label>
+            </div>
+            <div class="personalTag">
+                <img src="img/photoProfile/GuilhemPequillat.png" class="img-responsive" width="200" height="200" alt="Guilhem Pequillat">
+                <label>Guilhem Pequillat</label>
+            </div>
+        </div>
+        <div class="col-sm-5"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-6">
+
+        <h2 ng-show="lang == 'EN' || !lang">News</h2>
+        <h2 ng-show="lang == 'FR'">Nouvelles</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu enim eu massa porttitor luctus at sit amet eros. Mauris imperdiet tempus justo sed mollis. Donec molestie vehicula efficitur. Aliquam dui eros, eleifend nec efficitur id, fermentum et justo. Proin id porta ex. Aenean scelerisque ex in semper lobortis. Nullam eget est nec nibh pellentesque lobortis. Proin rutrum, eros interdum mollis egestas, lorem sapien vulputate urna, a vehicula enim tortor non urna. Cras lacinia velit et feugiat mollis. Curabitur non velit dictum, viverra tortor id, congue sapien. In eget lacinia tortor. Maecenas erat ligula, efficitur vel libero vel, blandit accumsan neque. Pellentesque lobortis velit non sem rhoncus, placerat suscipit mi vulputate. In aliquam arcu eget tellus imperdiet tempus. Nam non lectus in mauris volutpat ultricies sed non nibh.
+        </p>
+
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+<!--  footer  -->
+    <footer class="lastPic">
+        <div class="single"></div>
+        <div class="single">
+            <select ng-model="lang">
+                <option>EN</option>
+                <option>FR</option>
+            </select>
+
+            <a class="onImgLink">Contact</a>
+        </div>
+        
+        <div class="flexRight">
+            <img src="img/logoAppli.png" class="logo responsive">
+        </div>
+    </footer>
+    
+    <!-- Modal -->
+    <div id="conModal" class="modal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    
+                    <h4 ng-click="type = 'use'">Connect</h4>
+                    <h4 ng-click="type = 'new'">Create account</h4>
+                    <h4 ng-click="type = 'anon'">Connect as anon</h4>
+                </div>
+                
+                <div ng-show="type == 'use'">
+                    <div class="modal-body">
+                        <div>
+                            <p>
+                                <label>Pseudo : </label>
+                                <input type="text" class="form-control" placeholder="Pseudo" ng-model="name">
+                            </p>
+                            
+                            <p>
+                                <label>Password : </label>
+                                <input type="password" class="form-control" placeholder="Password" ng-model="password">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="curent.connection()">Connect</button>
+                    </div>
+                </div>
+                
+                <div ng-show="type == 'new'">
+                    <div class="modal-body">
+                        <div>
+                            <p class="createUser">
+                                <label>Pseudo : </label>
+                                <input type="text" class="form-control" placeholder="Pseudo" ng-model="name">
+                            </p>
+                            
+                            <p class="createUser">
+                                <label>Password : </label>
+                                <input type="password" class="form-control" placeholder="Password" ng-model="password">
+                            </p>
+                            
+                            <p class="createUser">
+                                <label>Email : </label>
+                                <input type="email" class="form-control" placeholder="Email" ng-model="email">
+                            </p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" data-dismiss="modal" ng-click="curent.newUser()">Create</button>
+                    </div>
+                </div>
+                
+                <div ng-show="type == 'anon'">
+                    <div class="modal-body">
+                        <p>
+                            Connect as an anonyme user won't allow you to use our user reserved functions.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="curent.connectionAnon()">Connect as anon</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

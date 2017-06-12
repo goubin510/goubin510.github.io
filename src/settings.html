@@ -1,0 +1,64 @@
+<div ng-controller="menuApp as curent">
+    <nav class="menuApp">
+        <label>{{name}}</label>
+        <label class="exit" ng-click="curent.test()">logOut</label>
+        
+        <a href="/#/" ><h3>Home</h3></a>
+        <a href="/#/dashboard" ><h3>Visit</h3></a>
+        <a href="/#/calendar" ><h3>Planning</h3></a>
+        <a href="/#/courses" ><h3>Courses</h3></a>
+        <a href="/#/rooms" ><h3>Rooms</h3></a>
+        <a href="/#/settings" ><h3>Settings</h3></a>
+        <a href="/#/admin" ><h3>Admin</h3></a>
+    </nav>
+</div>
+
+<div ng-controller="settings as curent" class="content">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <h1>Settings</h1>
+            
+            <p>
+                <label class="light">Specific attribute</label>
+                <select class="form-control settings">
+                    <option>none</option>
+                    <option>whell-chair</option>
+                </select>
+            </p>
+            <p>
+                <label class="light">User</label>
+                <select class="form-control settings">
+                    <option>Student</option>
+                    <option>Teacher</option>
+                    <option>Organiser</option>
+                </select>
+            </p>
+            <p>
+                <label class="light">iCal</label>
+                <input type="url" class="form-control settings">
+            </p>
+            <p>
+                <label class="light">Notification : </label>
+                <input type="checkbox">
+            </p>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+    
+    <footer>
+        <div class="single"></div>
+        <div class="single">
+            <select ng-model="lang">
+                <option>EN</option>
+                <option>FR</option>
+            </select>
+
+            <a>Contact</a>
+        </div>
+        
+        <div class="flexRight">
+            <img src="img/logoAppli.png" class="logo responsive">
+        </div>
+    </footer>
+</div>

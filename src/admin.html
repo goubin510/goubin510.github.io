@@ -1,0 +1,148 @@
+<div ng-controller="menuApp as curent">
+    <nav class="menuApp">
+        <label>{{name}}</label>
+        <label class="exit" ng-click="curent.test()">logOut</label>
+        
+        <a href="/#/" ><h3>Home</h3></a>
+        <a href="/#/dashboard" ><h3>Visit</h3></a>
+        <a href="/#/calendar" ><h3>Planning</h3></a>
+        <a href="/#/courses" ><h3>Courses</h3></a>
+        <a href="/#/rooms" ><h3>Rooms</h3></a>
+        <a href="/#/settings" ><h3>Settings</h3></a>
+        <a href="/#/admin" ><h3>Admin</h3></a>
+    </nav>
+</div>
+
+<div ng-controller="admin as curent" class="content">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <h1>Admin</h1>
+            
+            <div>
+                <h2 class="spe" ng-click="tab = 'add'">Add</h2>
+                <h2 class="spe" ng-click="tab = 'show'">Show</h2>
+                <h2 class="spe" ng-click="tab = 'status'">Status page</h2>
+                <h2 class="spe" ng-click="tab = 'map'">Show map</h2>
+            </div>
+            
+            <hr>
+            
+            <div ng-show="tab == 'add'">
+                <p>
+                    <label>name : </label>
+                    <input type="text" class="form-control adminInputs" placeholder="name">
+                </p>
+                <p>
+                    <label>type : </label>
+                    <input type="text" class="form-control adminInputs" placeholder="type">
+                </p>
+                <p>
+                    <label>position : </label>
+                    <input type="text" class="form-control adminInputs" placeholder="10/11/12">
+                </p>
+                <button class="btn btn-success">Add</button>
+            </div>
+            
+            <div ng-show="tab == 'show'">
+                <h3>Rooms</h3>
+                <div class="dataList">
+                    <div ng-repeat="item in actualRooms">
+                        <strong>{{item}}</strong> (<span ng-click="curent.edition(item)"> edit</span> | <span ng-click="curent.delete(item)"> delete</span> )
+                    </div>
+                </div>
+                
+                <label>Points of interest</label>
+                <div class="dataList">
+                    <div ng-repeat="item in actualPoI">
+                        <strong>{{item}}</strong> (<span ng-click="curent.edition(item)"> edit</span> | <span ng-click="curent.delete(item)"> delete</span> )
+                    </div>
+                </div>
+            </div>
+            
+            <div ng-show="tab == 'edit'">
+                <label ng-click="tab = 'show'">back</label>
+                <p>
+                    <label>name : </label>
+                    <input type="text" class="form-control adminInputs" placeholder="name" ng-model="curentData">
+                </p>
+                <p>
+                    <label>type : </label>
+                    <input type="text" class="form-control adminInputs" placeholder="type">
+                </p>
+                <p>
+                    <label>position : </label>
+                    <input type="text" class="form-control adminInputs" placeholder="10/11/12">
+                </p>
+                <button class="btn btn-info">Update</button>
+            </div>
+            
+            <div ng-show="tab == 'map'">
+                <div>
+                    <p>
+                        width : 
+                        <input placeholder="width" type="number" ng-model="width" class="form-control">
+                    </p>
+                    <p>
+                        height : 
+                        <input placeholder="height" type="number" ng-model="height" class="form-control">
+                    </p>
+                    <p>
+                        Background image : 
+                        <input type="file">
+                    </p>
+                </div>
+                <div>
+                    <button class="btn btn-default" ng-click="curent.prepareJson()">Set</button>
+                </div>
+                
+                <div class="flex">
+                    <div class="quad">
+                        <h2>Map</h2>
+                        
+                        <div  class="flex" ng-repeat="line in map track by $index">
+                                <button class="single mapBtn" ng-repeat="item in line track by $index"></button>
+                        </div>
+                    </div>
+                    <div class="single">
+                        <h2>Inputs</h2>
+                        
+                        <h5>Path</h5>
+                        <p>
+                            <input type="number" placeholder="Path" class="form-control">
+                        </p>
+                        
+                        <h5>Beacon</h5>
+                        <p>
+                            Major :
+                            <input type="number" placeholder="major" class="form-control">
+                            Minor :
+                            <input type="number" placeholder="minor" class="form-control">
+                        </p>
+                        
+                        <h5>Room</h5>
+                        <p>
+                            <input type="text" placeholder="room" class="form-control">
+                        </p>
+                        
+                        <h5>Point of Interest</h5>
+                        <p>
+                            <input type="text" placeholder="name" class="form-control">
+                        </p>
+                        
+                        <h5>Floor Access</h5>
+                        <p>
+                            Type (0 : none / 1 : Stairs / 2 : Elevator) : 
+                            <input type="number" placeholder="0 : none / 1 : Stairs / 2 : Elevator" class="form-control">
+                            Floor acces :
+                            <input type="number" placeholder="Floor number" class="form-control">
+                            
+                        </p>
+                        <button class="btn btn-default">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>

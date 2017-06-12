@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AugmentEPF</title>
+    <meta charset="utf-8">
+
+<!--  import de bootstrap.css, fontawesome.css  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<!--  import de jQuery, bootstrap.js  -->
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!--  import de angular et de ses compos  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+    
+<!--  parametre site  -->
+    <link rel="icon" type="image/png" href="img/logoAppli.png" />
+    
+    <style>
+        body, html, .content {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #F6F7F7;
+            color: #787878;
+        }
+        a, a:hover, a:active {
+            color: #F6F7F7;
+            text-decoration: none;
+        }
+        footer {
+            position: absolute;
+            width: 100%;
+            
+            display: flex;
+            
+            bottom: 0px;
+            padding-top: 50px;
+        }
+        footer a, footer a:hover, footer a:active {
+            color: #FA232E;
+        }
+        h1, h2 {
+            color: #FA232E;
+        }
+        .flexRight {
+            flex: 1;
+            align-self: flex-end;
+        }
+        .menuInfo, .menuApp {
+        	z-index: 1;
+        	vertical-align: middle;
+        	position: fixed;
+        	background-color: #E0E0E0;
+            
+        	margin-top: 10%;
+            padding-left: 10px;
+        	padding-right: 20px;
+        	padding-bottom: 20px;
+        }
+        .menuApp {
+        	margin: 0;
+        	height: 100%;
+        }
+        .menuApp label {
+            color: #787878;
+        }
+        .menuInfo {
+        	box-shadow: 0px 0px 50px #272626;
+        	border-radius: 0px 40px 40px 0px;
+        }
+    	.menuInfo a, .menuApp a {
+    		display: block;
+    	}
+    	.menuInfo a, .menuApp a, .menuInfo a:hover, .menuApp a:hover, .menuInfo a:active, .menuApp a:active {
+    		color: #FA232E;
+    		text-decoration: none;
+    	}
+    	.firstPic, .lastPic {
+    		z-index: 0;
+            position: relative;
+            opacity: 0.65;
+            text-align: center;
+            
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+    	}
+    	.firstPic {
+            background-image: url("img/lakanalEntry.jpg");
+            min-height: 100%;
+    	}
+		.lastPic {
+            background-image: url("img/lakanalEntry.jpg");
+            min-height: 200px;
+            
+            color: #E0E0E0e
+		}
+        .logo {
+            max-height: 200px;
+        }
+        .createUser label{
+            display: inline-block;
+            text-align: right;
+            width: 19%;
+        }
+        .createUser input{
+            display: inline-block;
+            width: 79%;
+        }
+        .menuInfo h2, .menuApp h3 {
+            transition-duration: 0.5s;
+            padding: 10px;
+            
+            border-radius: 5px;
+            border-style: solid;
+            border-color: #E0E0E0;
+            border-width: 3px;
+        }
+        .menuInfo h2:hover, .menuApp h3:hover {
+            border-style: solid;
+            border-color: #FA232E;
+            border-width: 3px;
+        }
+        .exit {
+            transition-duration: 0.5s;
+            cursor: pointer;
+        }
+        .exit:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        h4, .spe {
+            margin: 0;
+            display: inline-block;
+            text-align: center;
+            
+            border-right-style: solid;
+            border-right-width: 1px;
+            border-right-color: #787878;
+            
+            padding: 10px;
+        }
+        h4:last-child, .spe:last-child {
+            border-style: none;
+        }
+        .personalTag {
+            display: inline-block;
+        }
+        .personalTag label {
+            display: block;
+        }
+        .more {
+            text-align: center;
+            width: 10%;
+            margin-left: 80%;
+            
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+        .calContent {
+            display: flex;
+        }
+        .dayCal {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            padding: 10px;
+            
+            border-style: solid;
+            border-width: 1px;
+            border-color: #787878;
+        }
+        .calTest {
+            border-style: dotted;
+            border-width: 1px;
+            border-color: #787878;
+            
+            background-color: #FA232E;
+        }
+        .title, titleLegend {
+            margin-bottom: 20px;
+            
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+        }
+        .titleLegend {
+            margin-bottom: 10px;
+            
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+        }
+        .dayCal div {
+            overflow: hidden;
+            min-height: 20px;
+        }
+        .single {
+            flex: 1;
+        }
+        .double {
+            flex: 2;
+        }
+        .triple {
+            flex: 3;
+        }
+        .quad {
+            flex: 4;
+        }
+        .inputs, .dataDisplay {
+            display: inline-block;
+            vertical-align: top;
+        }
+        .dataDisplay {
+            border-style: solid;
+            border-width: 1px;
+        }
+        .form {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .form input {
+            width: 71%;
+        }
+        .flex {
+            display: flex;
+        }
+        .right {
+            text-align: right;
+        }
+        .right {
+            text-align: right;
+        }
+        .coursesInput, .roomsInput {
+            width: 80%;
+        }
+        .right button {
+            margin-right: 10%;
+        }
+        .single label {
+            display: block;
+            margin-left: 20px;
+        }
+        .light {
+            color: #787878;
+            font-weight: 400;
+        }
+        .roomsInput {
+            margin-top: 30px;
+        }
+        .settings, .adminInputs {
+            width: 20%;
+        }
+        .dataList {
+            max-height: 200px;
+            width: 80%;
+            margin-bottom: 50px;
+            overflow: auto;
+        }
+        .example-animate-container {
+            background: #F6F7F7;
+            list-style: none;
+            margin: 0;
+            padding: 0 10px;
+        }
+        .animate-repeat {
+            line-height: 30px;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        .animate-repeat.ng-move,
+        .animate-repeat.ng-enter,
+        .animate-repeat.ng-leave {
+            transition: all linear 0.5s;
+        }
+        .animate-repeat.ng-leave.ng-leave-active,
+        .animate-repeat.ng-move,
+        .animate-repeat.ng-enter {
+            opacity: 0;
+            max-height: 0;
+        }
+        .animate-repeat.ng-leave,
+        .animate-repeat.ng-move.ng-move-active,
+        .animate-repeat.ng-enter.ng-enter-active {
+            opacity: 1;
+            max-height: 30px;
+        }
+        .modal-content {
+            background-color: #F6F7F7;
+        }
+        .btn-default {
+            color: #787878;
+        }
+        .mapBtn {
+            background-color: rgba(0,0,0,0);
+            border-width: 1px;
+            border-style: solid;
+        }
+    </style>
+    <script>
+        //variables globales
+        var adresse = "http://192.168.206.106/AugmentEPF/php/";
+        var actualrooms = ["Amphi A", "Amphi B", "1L", "2L", "3L", "4L", "5L", "6L", "7L", "8L", "9L", "11L", "12L", "i1", "i2", "i3", "i4", "i5", "i6"];
+        var actualPoI = ["Villa Lakanal", "Villa Lycée", "Scolarité", "Accueil"];
+        
+        // création de l'app Angular
+        var app = angular.module("myApp", ["ngRoute", "ngAnimate"]);
+
+        // déclaration des routes
+        app.config(function($routeProvider, $locationProvider) {
+            $routeProvider
+            	.when("/", {
+            		templateUrl: "src/info.html"
+            	})
+            	.when("/dashboard", {
+            		templateUrl: "src/dashboard.html"
+            	})
+            	.when("/calendar", {
+            		templateUrl: "src/calendar.html"
+            	})
+            	.when("/courses", {
+            		templateUrl: "src/courses.html"
+            	})
+            	.when("/rooms", {
+            		templateUrl: "src/rooms.html"
+            	})
+            	.when("/settings", {
+            		templateUrl: "src/settings.html"
+            	})
+            	.when("/admin", {
+            		templateUrl: "src/admin.html"
+            	})
+        });
+        
+        // Déclaration des controllers
+        app.controller("info", function($http, $scope){
+            if(!localStorage.lang){
+                $scope.lang = "EN";
+                localStorage.lang = "EN";
+            }
+            localStorage.lang = $scope.lang;
+            
+            this.newUser = function(){
+                var user = {
+                    "name": $scope.name,
+                    "type": "étudiant",
+                    "password": $scope.password,
+                    "email": $scope.email,
+                    "specificAttributes": ["elevator","biggerText"]
+                };
+                var user = JSON.stringify(user);
+                
+                localStorage.name = $scope.name;
+                
+                document.location = "/#/dashboard";
+
+//                $http({
+//                    method: 'POST',
+//                    url: adresse + "accountCreation.php",
+//                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+//                    data: "Send=" + user
+//                    }
+//                ).then(function successCallback(response) {
+//                    document.location = "/#/dashboard";
+//                    console.log(response);
+//                }, function errorCallback(response) {
+//                    document.location = "/#/dashboard";
+//                    console.log(response);
+//                });
+            }
+            
+            this.connection = function(){
+                var user = {
+                    "name": $scope.name,
+                    "password": $scope.password
+                };
+                var user = JSON.stringify(user);
+                
+                localStorage.name = $scope.name;
+                
+                document.location = "/#/dashboard";
+
+//                $http({
+//                    method: 'POST',
+//                    url: adresse + "connection.php",
+//                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+//                    data: "Send=" + user
+//                    }
+//                ).then(function successCallback(response) {
+//                    document.location = "/#/dashboard";
+//                    console.log(response);
+//                }, function errorCallback(response) {
+//                    document.location = "/#/dashboard";
+//                    console.log(response);
+//                });
+            }
+            
+            this.connectionAnon = function() {
+                localStorage.name = "anon";
+                
+                document.location = "/#/dashboard";
+            }
+            
+        });
+        app.controller("menuApp", function($scope){
+            $scope.name = localStorage.name || "error";
+            
+            this.test = function() {
+                localStorage.clear();
+                document.location = "/"
+            }
+            
+                       });
+        app.controller("dashboard", function($scope){
+            
+                       });
+        app.controller("calendar", function(){
+            
+                       });
+        app.controller("courses", function(){
+            
+                       });
+        app.controller("rooms", function($scope){
+            $scope.actualRooms = actualrooms;
+            
+                       });
+        app.controller("settings", function(){
+            
+                       });
+        app.controller("admin", function($scope){
+            $scope.tab = "map";
+            $scope.actualRooms = actualrooms;
+            $scope.actualPoI = actualPoI;
+            $scope.map = [];
+            var init = {
+                'value': 1
+            };
+            
+            this.edition = function(data) {
+                $scope.curentData = data;
+                $scope.tab = "edit";
+            }
+            
+            this.delete = function(data) {
+                console.log(data);
+            }
+            
+            this.prepareJson = function() {
+                $scope.map = [];
+                
+                for(var i = 0; i < $scope.height; i++){
+                    $scope.map.push([]);
+                    for(var j = 0; j < $scope.width; j++){
+                        $scope.map[i].push(init);
+                    }
+                }
+            }
+            
+                       });
+    </script>
+</head>
+<body>
+    <!-- import du contenu -->
+    <div ng-app="myApp" class="content">
+        <div class="content" ng-view></div>
+    </div>
+</body>
+</html>

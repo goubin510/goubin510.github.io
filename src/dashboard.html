@@ -1,0 +1,245 @@
+<div ng-controller="menuApp as curent">
+    <nav class="menuApp">
+        <label>{{name}}</label>
+        <label class="exit" ng-click="curent.test()">logOut</label>
+        
+        <a href="/#/" ><h3>Home</h3></a>
+        <a href="/#/dashboard" ><h3>Visit</h3></a>
+        <a href="/#/calendar" ><h3>Planning</h3></a>
+        <a href="/#/courses" ><h3>Courses</h3></a>
+        <a href="/#/rooms" ><h3>Rooms</h3></a>
+        <a href="/#/settings" ><h3>Settings</h3></a>
+        <a href="/#/admin" ><h3>Admin</h3></a>
+    </nav>
+</div>
+
+<div ng-controller="dashboard as curent" class="content">
+    <div class="firstPic"></div>
+
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <h2>Calendar</h2>
+            
+            <div class="calContent">
+                <div class="dayCal">
+                    <div class="titleLegend">
+                        Hrs\Days
+                    </div>
+                    <div class="single">
+                        8h
+                    </div>
+                    <div class="single">
+                        -
+                    </div>
+                    <div class="single">
+                        10h
+                    </div>
+                    <div class="single">
+                        -
+                    </div>
+                    <div class="single">
+                        12h
+                    </div>
+                    <div class="single">
+                        -
+                    </div>
+                    <div class="single">
+                        14h
+                    </div>
+                    <div class="single">
+                        -
+                    </div>
+                    <div class="single">
+                        16h
+                    </div>
+                    <div class="single">
+                        -
+                    </div>
+                    <div class="single">
+                        18h
+                    </div>
+                    <div class="single">
+                        -
+                    </div>
+                </div>
+                <div class="dayCal">
+                    <div class="title">
+                        mondayCal
+                    </div>
+                    <div class="single calTest" data-toggle="tooltip" title="8h15 : 9h15">
+                        <a title="8h15 : 9h15 (11L)" 
+                           data-toggle="popover" 
+                           data-placement="right" 
+                           data-content="Ingénierie Système et gestion">Ingénierie Système et gestion</a>
+                    </div>
+                    <div class="single"></div>
+                    <div class="double calTest" data-toggle="tooltip" title="10h : 12h">
+                        <a title="10h : 12h (9L)" 
+                           data-toggle="popover" 
+                           data-placement="right" 
+                           data-content="Ingénierie du traitement statistiques">Ingénierie du traitement statistiques</a>
+                    </div>
+                    <div class="single"></div>
+                    <div class="quad calTest" data-toggle="tooltip" title="13h : 17h">
+                        <a title="13h : 17h (3L)" 
+                           data-toggle="popover" 
+                           data-placement="right" 
+                           data-content="Ingénierie qualité">Ingénierie qualité</a>
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                </div>
+                <div class="dayCal">
+                    <div class="title">
+                        tuesdayCal
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="double calTest">
+                        <a>Evaluation environnementale</a>
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="quad calTest">
+                        <a>Politique de sécurité des SI</a>
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                </div>
+                <div class="dayCal">
+                    <div class="title">
+                        wednesday
+                    </div>
+                    <div class="double calTest">
+                        <a>VBA</a>
+                    </div>
+                    <div class="double calTest">
+                        <a>Ethique</a>
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                </div>
+                <div class="dayCal">
+                    <div class="title">
+                        thursday
+                    </div>
+                    <div class="single"></div>
+                    <div class="triple calTest">
+                        <a>Insertion en entreprise</a>
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="triple calTest">
+                        <a>Rapport</a>
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                </div>
+                <div class="dayCal">
+                    <div class="title">
+                        fridayCal
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                </div>
+                <div class="dayCal">
+                    <div class="title">
+                        saturdayCal
+                    </div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                    <div class="single"></div>
+                </div>
+            </div>
+            
+            <button class="btn btn-large btn-default more">Plus</button>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 single">
+            <h2>Courses</h2>
+
+            <label>Amhpi A —— 01/01/2018 12:12</label>
+            <label>Amhpi A —— 01/01/2018 12:12</label>
+            <label>Amhpi A —— 01/01/2018 12:12</label>
+            <label>Amhpi A —— 01/01/2018 12:12</label>
+
+            <label class="light">Amhpi A —— 01/01/2018 12:12</label>
+            <label class="light">Amhpi A —— 01/01/2018 12:12</label>
+            
+            <button class="btn btn-large btn-default more">Plus</button>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <h2>Rooms</h2>
+            
+            <div class="inlineDiv">
+                <label class="topTitle">Available rooms</label>
+                    <h5>AmphiB</h5>
+                    <h5>12L</h5>
+                    <h5>9L</h5>
+            </div>
+            
+            <button class="btn btn-large btn-default more">Plus</button>
+            
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+    
+    <footer class="lastPic">
+        <div class="single"></div>
+        <div class="single">
+            <select ng-model="lang">
+                <option>EN</option>
+                <option>FR</option>
+            </select>
+
+            <a class="onImgLink">Contact</a>
+        </div>
+        
+        <div class="flexRight">
+            <img src="img/logoAppli.png" class="logo responsive">
+        </div>
+    </footer>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();
+    });
+</script>
